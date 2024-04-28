@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace UI.Views
 {
     public partial class AdivinarDepartamentos : ContentPage
     {

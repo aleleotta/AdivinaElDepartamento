@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:UI.ViewModels"
-             x:Class="UI.Views.Resultado">
+             x:Class="UI.Views.Resultado"
+             Padding="5">
+
+    <ContentPage.BindingContext>
+        <vm:SubVM/>
+    </ContentPage.BindingContext>
+    
     <VerticalStackLayout>
         <Label 
             Text="Welcome to .NET MAUI!"

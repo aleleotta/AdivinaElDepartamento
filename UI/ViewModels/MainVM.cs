@@ -54,7 +54,7 @@ namespace UI.ViewModels
                 if (listadoPersonas[count].DepartamentoSeleccionado.Id != listadoPersonas[count].IdDept)
                 {
                     encontradoFallo = true;
-                    res = "Hostias!!!\nHas fallado uno o mas departamentos.\nIntentalo de nuevo!"
+                    res = "Hostias!!!\nHas fallado uno o mas departamentos.\nIntentalo de nuevo!";
                 }
             }
             Dictionary<string, object> pack = new Dictionary<string, object>
