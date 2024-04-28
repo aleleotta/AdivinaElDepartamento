@@ -39,7 +39,6 @@
                                 </Border>
                                 <Border Padding="10" Grid.Column="2">
                                     <Picker HorizontalOptions="FillAndExpand"
-                                            Title="Seleccionar..."
                                             ItemsSource="{Binding ListadoDepartamentos}"
                                             ItemDisplayBinding="{Binding NombreDept}"
                                             SelectedItem="{Binding DepartamentoSeleccionado}"/>
