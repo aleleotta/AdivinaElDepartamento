@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:UI.ViewModels"
              x:Class="UI.Views.AdivinarDepartamentos"
-             Padding="5">
+             Padding="20">
 
     <ContentPage.BindingContext>
         <vm:MainVM/>
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <Label Text="Adivina los departamentos" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Label Text="Adivina los departamentos" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,30"/>
         <HorizontalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="30">
             <Border StrokeShape="RoundRectangle, 10" VerticalOptions="Center">
                 <CollectionView ItemsSource="{Binding ListadoPersonas}" VerticalScrollBarVisibility="Always">
                     <CollectionView.Header>
-                        <Grid ColumnDefinitions="200,200,300" RowDefinitions="*,*">
+                        <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*">
                             <Label Text="Listado personas" FontSize="Medium" HorizontalOptions="Center" Margin="10,10" Grid.Row="0" Grid.ColumnSpan="3"/>
                             <Border Grid.Column="0" Grid.Row="1" Padding="10">
                                 <Label Text="Nombre" FontSize="Small" HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -30,7 +30,7 @@
                     </CollectionView.Header>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid ColumnDefinitions="200,200,300" RowDefinitions="*">
+                            <Grid ColumnDefinitions="*,*,*" RowDefinitions="*">
                                 <Border Padding="10" Grid.Column="0">
                                     <Label Text="{Binding Nombre}" HorizontalOptions="Center" VerticalOptions="Center"/>
                                 </Border>
@@ -41,15 +41,15 @@
                                     <Picker HorizontalOptions="FillAndExpand"
                                             Title="Seleccionar..."
                                             ItemsSource="{Binding ListadoDepartamentos}"
-                                            ItemDisplayBinding="{Binding Nombre}"
+                                            ItemDisplayBinding="{Binding NombreDept}"
                                             SelectedItem="{Binding DepartamentoSeleccionado}"/>
                                 </Border>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-
             </Border>
+            <Button Text="Comprobar" HeightRequest="50" VerticalOptions="End" Command="{Binding Comprobar}"/>
         </HorizontalStackLayout>
     </StackLayout>
 

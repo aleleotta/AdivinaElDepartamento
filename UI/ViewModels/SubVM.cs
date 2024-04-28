@@ -26,7 +26,10 @@ namespace UI.ViewModels
         #endregion
 
         #region CommandExecuters
-        private void jugar_execute() { }
+        private async void jugar_execute()
+        {
+            await Shell.Current.GoToAsync("///AdivinarDepartamentos");
+        }
         private void salir_execute() => System.Environment.Exit(0);
         #endregion
 

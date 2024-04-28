@@ -56,6 +56,7 @@ namespace UI.ViewModels
                     encontradoFallo = true;
                     res = "Hostias!!!\nHas fallado uno o mas departamentos.\nIntentalo de nuevo!";
                 }
+                count++;
             }
             Dictionary<string, object> pack = new Dictionary<string, object>
             {
@@ -65,7 +66,7 @@ namespace UI.ViewModels
         }
         private bool comprobar_canExecute()
         {
-            bool encontradoSinDept = false;
+            /*bool encontradoSinDept = false;
             int count = 0;
             while (!encontradoSinDept && count < listadoPersonas.Count)
             {
@@ -74,7 +75,7 @@ namespace UI.ViewModels
                     return false;
                 }
                 count++;
-            }
+            }*/
             return true;
         }
         private void salir_execute() => System.Environment.Exit(0);
@@ -100,6 +101,11 @@ namespace UI.ViewModels
                 listadoPersonasConDepartamento.Add(personaConDepartamento);
             }
             return listadoPersonasConDepartamento;
+        }
+
+        public void raiseCanExecuteOutsideVM()
+        {
+            comprobar.RaiseCanExecuteChanged();
         }
         #endregion
 
