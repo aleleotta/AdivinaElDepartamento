@@ -18,6 +18,7 @@ namespace UI.ViewModels
         #region Attributes
         private ObservableCollection<clsPersonaConListadoDepartamentosYDepartamentoSeleccionado> listadoPersonas;
         private clsPersonaConListadoDepartamentosYDepartamentoSeleccionado personaSeleccionada;
+        private DelegateCommand comprobar;
         private DelegateCommand salir;
         #endregion
 
@@ -34,13 +35,48 @@ namespace UI.ViewModels
                 if (value != null)
                 {
                     personaSeleccionada = value;
+                    comprobar.RaiseCanExecuteChanged();
                 }
             }
         }
+        public DelegateCommand Comprobar { get { return comprobar; } }
         public DelegateCommand Salir { get { return salir; } }
         #endregion
 
         #region CommandExecuters
+        private async void comprobar_execute()
+        {
+            bool encontradoFallo = false;
+            int count = 0;
+            string res = "Enhorabuena!\nHas adivinado todos los departamentos!";
+            while (!encontradoFallo && count < listadoPersonas.Count)
+            {
+                if (listadoPersonas[count].DepartamentoSeleccionado.Id != listadoPersonas[count].IdDept)
+                {
+                    encontradoFallo = true;
+                    res = "Hostias!!!\nHas fallado uno o mas departamentos.\nIntentalo de nuevo!"
+                }
+            }
+            Dictionary<string, object> pack = new Dictionary<string, object>
+            {
+                {"Resultado", res}
+            };
+            await Shell.Current.GoToAsync("///Resultado", false, pack);
+        }
+        private bool comprobar_canExecute()
+        {
+            bool encontradoSinDept = false;
+            int count = 0;
+            while (!encontradoSinDept && count < listadoPersonas.Count)
+            {
+                if (listadoPersonas[count].DepartamentoSeleccionado == null)
+                {
+                    return false;
+                }
+                count++;
+            }
+            return true;
+        }
         private void salir_execute() => System.Environment.Exit(0);
         #endregion
 
@@ -48,6 +84,7 @@ namespace UI.ViewModels
         public MainVM()
         {
             listadoPersonas = getListadoPersonasConDepartamento();
+            comprobar = new DelegateCommand(comprobar_execute, comprobar_canExecute);
             salir = new DelegateCommand(salir_execute);
         }
         #endregion
@@ -57,6 +94,11 @@ namespace UI.ViewModels
         {
             ObservableCollection<clsPersonaConListadoDepartamentosYDepartamentoSeleccionado> listadoPersonasConDepartamento = new();
             List<clsPersona> listadoPersonasGenericas = clsListadosDAL.getListadoCompletoPersonas();
+            foreach (clsPersona persona in listadoPersonasGenericas)
+            {
+                clsPersonaConListadoDepartamentosYDepartamentoSeleccionado personaConDepartamento = new clsPersonaConListadoDepartamentosYDepartamentoSeleccionado(persona);
+                listadoPersonasConDepartamento.Add(personaConDepartamento);
+            }
             return listadoPersonasConDepartamento;
         }
         #endregion

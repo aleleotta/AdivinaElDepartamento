@@ -12,7 +12,28 @@ namespace DAL
         {
             List<clsPersona> listadoPersonas = new List<clsPersona>
             {
-                new clsPersona(),
+                new clsPersona(1, "Fernando", "Galiana", 1),
+                new clsPersona(2, "Maria", "Lopez", 1),
+                new clsPersona(3, "Juan", "Martinez", 2),
+                new clsPersona(4, "Ana", "Garcia", 2),
+                new clsPersona(5, "Carlos", "Rodriguez", 3),
+                new clsPersona(6, "Laura", "Sanchez", 3),
+                new clsPersona(7, "Pedro", "Diaz", 4),
+                new clsPersona(8, "Elena", "Perez", 4),
+                new clsPersona(9, "Diego", "Ruiz", 5),
+                new clsPersona(10, "Sara", "Gomez", 5),
+                new clsPersona(11, "Manuel", "Alvarez", 6),
+                new clsPersona(12, "Carmen", "Fernandez", 6),
+                new clsPersona(13, "Pablo", "Morales", 1),
+                new clsPersona(14, "Rosa", "Jimenez", 1),
+                new clsPersona(15, "Daniel", "Navarro", 2),
+                new clsPersona(16, "Luisa", "Romero", 2),
+                new clsPersona(17, "Javier", "Hernandez", 3),
+                new clsPersona(18, "Marta", "Ortega", 3),
+                new clsPersona(19, "Alberto", "Sanz", 4),
+                new clsPersona(20, "Natalia", "Vega", 4),
+                new clsPersona(21, "Roberto", "Iglesias", 5),
+                new clsPersona(22, "Isabel", "Mendez", 5)
             };
             return listadoPersonas;
         }
@@ -25,7 +46,13 @@ namespace DAL
         {
             List<clsDepartamento> listadoDepartamentos = new List<clsDepartamento>
             {
-                new clsDepartamento(),
+                new clsDepartamento(1, "Marketing"),
+                new clsDepartamento(2, "Ventas"),
+                new clsDepartamento(3, "Contabilidad"),
+                new clsDepartamento(4, "Recursos Humanos"),
+                new clsDepartamento(5, "Informatica"),
+                new clsDepartamento(6, "Produccion")
+
             };
             return listadoDepartamentos;
         }

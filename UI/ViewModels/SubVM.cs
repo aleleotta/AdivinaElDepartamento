@@ -11,7 +11,7 @@ using UI.Utilities;
 
 namespace UI.ViewModels
 {
-    public class SubVM : INotifyPropertyChanged//, IQueryAttributable
+    public class SubVM : INotifyPropertyChanged, IQueryAttributable
     {
         #region Attributes
         private string resultado;
@@ -39,10 +39,11 @@ namespace UI.ViewModels
         #endregion
 
         #region Methods
-        /*public void ApplyQueryAttributes(IDictionary<string, object> query)
+        public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            throw new NotImplementedException();
-        }*/
+            resultado = query["Resultado"] as string;
+            OnPropertyChanged("Resultado");
+        }
         #endregion
 
         #region ViewModel

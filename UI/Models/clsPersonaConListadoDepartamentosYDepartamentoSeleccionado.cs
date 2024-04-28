@@ -34,6 +34,5 @@ namespace UI.Models
         {
             listadoDepartamentos = new ObservableCollection<clsDepartamento>(clsListadosDAL.getListadoCompletoDepartamentos());
         }
-
     }
 }
