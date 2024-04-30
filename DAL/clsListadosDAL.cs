@@ -15,7 +15,7 @@ namespace DAL
                 new clsPersona(1, "Fernando", "Galiana", 1),
                 new clsPersona(2, "Maria", "Lopez", 1),
                 new clsPersona(3, "Juan", "Martinez", 2),
-                new clsPersona(4, "Ana", "Garcia", 2),
+                /*new clsPersona(4, "Ana", "Garcia", 2),
                 new clsPersona(5, "Carlos", "Rodriguez", 3),
                 new clsPersona(6, "Laura", "Sanchez", 3),
                 new clsPersona(7, "Pedro", "Diaz", 4),
@@ -33,7 +33,7 @@ namespace DAL
                 new clsPersona(19, "Alberto", "Sanz", 4),
                 new clsPersona(20, "Natalia", "Vega", 4),
                 new clsPersona(21, "Roberto", "Iglesias", 5),
-                new clsPersona(22, "Isabel", "Mendez", 5)
+                new clsPersona(22, "Isabel", "Mendez", 5)*/
             };
             return listadoPersonas;
         }

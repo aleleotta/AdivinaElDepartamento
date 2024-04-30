@@ -54,7 +54,7 @@ namespace UI.ViewModels
                 if (listadoPersonas[count].DepartamentoSeleccionado.Id != listadoPersonas[count].IdDept)
                 {
                     encontradoFallo = true;
-                    res = "Hostias!!!\nHas fallado uno o mas departamentos.\nIntentalo de nuevo!";
+                    res = "Has fallado uno o mas departamentos.\nIntentalo de nuevo!";
                 }
                 count++;
             }
@@ -66,17 +66,17 @@ namespace UI.ViewModels
         }
         private bool comprobar_canExecute()
         {
-            /*bool encontradoSinDept = false;
+            bool encontradoSinDept = false;
             int count = 0;
             while (!encontradoSinDept && count < listadoPersonas.Count)
             {
                 if (listadoPersonas[count].DepartamentoSeleccionado == null)
                 {
-                    return false;
+                    encontradoSinDept = true;
                 }
                 count++;
-            }*/
-            return true;
+            }
+            return !encontradoSinDept;
         }
         private void salir_execute() => System.Environment.Exit(0);
         #endregion
